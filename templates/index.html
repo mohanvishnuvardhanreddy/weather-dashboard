@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chittela Weather | Desktop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="desktop-wrapper">
+        <!-- Gemini Style Search Section -->
+        <div class="search-section">
+            <div class="gemini-search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="city-input" placeholder="Search for weather in any city..." autocomplete="off">
+                <button onclick="fetchWeather()" id="submit-btn"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            <!-- Popular Cities Quick Links -->
+            <div class="popular-cities">
+                <span class="quick-link" onclick="quickSearch('Visakhapatnam')">Visakhapatnam</span>
+                <span class="quick-link" onclick="quickSearch('London')">London</span>
+                <span class="quick-link" onclick="quickSearch('New York')">New York</span>
+                <span class="quick-link" onclick="quickSearch('Tokyo')">Tokyo</span>
+                <span class="quick-link" onclick="quickSearch('Paris')">Paris</span>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Content -->
+        <div id="weather-content" class="dashboard-grid hidden">
+            <!-- Left Panel: Current Weather -->
+            <div class="panel current-panel">
+                <h1 id="city-name">City</h1>
+                <p id="condition-text">Sunny</p>
+                <div class="main-temp-wrap">
+                    <span id="current-temp">--</span><span class="degree-symbol">°</span>
+                </div>
+                <div id="warning-badge" class="insight-badge">---</div>
+                <p id="feels-like" style="opacity: 0.7;">Feels like --</p>
+            </div>
+
+            <!-- Right Panel: Graph & Weekly -->
+            <div class="panel detail-panel">
+                <div class="graph-card">
+                    <h3><i class="far fa-clock"></i> 24-Hour Forecast</h3>
+                    <div class="chart-container">
+                        <canvas id="tempChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="weekly-card">
+                    <h3><i class="far fa-calendar-alt"></i> 5-Day Forecast</h3>
+                    <div id="weekly-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
