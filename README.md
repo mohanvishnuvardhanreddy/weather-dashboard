@@ -40,3 +40,5 @@ An API Key from OpenWeatherMap.
 Data Aggregation: The backend fetches both current weather and 5-day forecast data simultaneously to minimize frontend latency.
 Heuristic Insights: A custom algorithm analyzes temperature and cloud coverage to generate user-friendly warnings (e.g., Heatwaves > 35°C).
 Responsive Charting: Chart.js is configured with a cubic interpolation mode (tension: 0.4) to provide a professional, smooth visual curve for temperature trends.
+
+Live Link: https://weather-dashboard-rho-cyan.vercel.app/
